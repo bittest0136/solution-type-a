@@ -21,6 +21,38 @@ public class Main {
 	}
 	
 	public static int countClap(int number) {
-		return 0;
+		int num = number;
+		int result =0;
+		String strNumber = String.valueOf(num);
+		String[] arrNumber = strNumber.split("");
+		int three= -1;
+		int six= -1;
+		int nine= -1;
+
+		for(int i=0;i<arrNumber.length;i++) {
+			int checkThree = strNumber.indexOf("3",i);
+			int checkSix = strNumber.indexOf("6",i);
+			int checkNine = strNumber.indexOf("9",i);
+			if(checkThree>-1) {
+				if( three !=checkThree) {
+					result++;
+					three = checkThree;
+				}
+			};
+			if(strNumber.indexOf("6",i)>-1) {
+				if( six !=checkSix) {
+					result++;
+					six = checkSix;
+				}
+			};
+			if(strNumber.indexOf("9",i)>-1) {
+				if( nine !=checkNine) {
+					result++;
+					nine = checkNine;
+				}
+			};
+		}
+		
+		return result;
 	}
 }
